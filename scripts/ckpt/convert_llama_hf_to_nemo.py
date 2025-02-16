@@ -100,6 +100,9 @@ def load_config(args, llama_config, cpu_only):
     nemo_config.use_cpu_initialization = cpu_only
     nemo_config.activation = "fast-swiglu"
 
+    print(nemo_config.use_cpu_initialization)
+    os.exit()
+
     # Tokenizer config
     if "tokenizer_model" in llama_config:
         nemo_config.tokenizer.model = llama_config["tokenizer_model"]
