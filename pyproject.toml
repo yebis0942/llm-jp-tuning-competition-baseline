@@ -1,0 +1,25 @@
+[project]
+name = "tuning-competition-baseline"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = "==3.11.*"
+dependencies = [
+    "cython>=3.0.12",
+    "huggingface-hub==0.22.0",
+    "nemo-aligner==0.3.1",
+    "nemo-toolkit[core,nlp]==1.23.0",
+    "pybind11>=2.13.6",
+    "transformer-engine[pytorch]>=1.13.0",
+]
+
+[[tool.uv.index]]
+name = "pytorch-cu124"
+url = "https://download.pytorch.org/whl/cu124"
+explicit = true
+
+[tool.uv.sources]
+torchvision = [
+  { index = "pytorch-cu124", marker = "sys_platform == 'linux' or sys_platform == 'win32'" },
+]
+

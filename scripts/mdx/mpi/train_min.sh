@@ -28,14 +28,7 @@ MODEL_PATH=${PROJECT_DIR}/checkpoints/hf-to-nemo/llm-jp--llm-jp-3-13b  # FIXME: 
   # -x MASTER_ADDR=$MASTER_ADDR \
   # -x MASTER_PORT=$MASTER_PORT \
 # run
-mpirun -np $NUM_GPUS \
-  --npernode $NUM_GPU_PER_NODE \
-  -x CUDA_DEVICE_MAX_CONNECTIONS=1 \
-  -x NCCL_IB_GID_INDEX=3 -x NCCL_IB_TC=106 \
-  -bind-to none -map-by slot \
-  -x PATH \
-  -x CUDA_LAUNCH_BLOCKING \
-  python train.py \
+python train.py \
   trainer.num_nodes=${NUM_NODES} \
   use_mpi=True \
   name=${NAME} \

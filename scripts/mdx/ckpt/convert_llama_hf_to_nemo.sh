@@ -1,12 +1,13 @@
 #!/bin/bash
-set -e
+set -eux
 
 # open file limit
 ulimit -n 65536 1048576
 
 source .venv/bin/activate
 
-PROJECT_DIR="/model/kodama/tuning_competition2025" # FIXME: Change this to your project directory.
+# PROJECT_DIR="/model/kodama/tuning_competition2025" # FIXME: Change this to your project directory.
+PROJECT_DIR="/home/mdxuser/workspace/tuning-competition-baseline/project_dir"
 export TMPDIR=${PROJECT_DIR}/tmp
 
 # For 1.8B model
