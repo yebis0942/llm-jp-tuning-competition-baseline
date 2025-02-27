@@ -11,14 +11,14 @@ PROJECT_DIR="/home/mdxuser/workspace/tuning-competition-baseline/project_dir"
 export TMPDIR=${PROJECT_DIR}/tmp
 
 # For 1.8B model
-# INPUT_NAME_OR_PATH="llm-jp/llm-jp-1.8b"
-# OUTPUT_PATH=${PROJECT_DIR}/checkpoints/hf-to-nemo/llm-jp--llm-jp-1.8b
-# HPARAMS_FILE=${PROJECT_DIR}/tuning-competition-baseline/megatron_configs/llm-jp/llm-jp-1.8b.yaml
+# INPUT_NAME_OR_PATH="llm-jp/llm-jp-3-1.8b"
+# OUTPUT_PATH=${PROJECT_DIR}/checkpoints/hf-to-nemo/llm-jp--llm-jp-3-1.8b
+# HPARAMS_FILE=./megatron_configs/llm-jp/llm-jp-3-1.8b.yaml
 
 # For 3.7B model
-# INPUT_NAME_OR_PATH="llm-jp/llm-jp-3.7b"
-# OUTPUT_PATH=${PROJECT_DIR}/checkpoints/hf-to-nemo/llm-jp--llm-jp-3.7b
-# HPARAMS_FILE=${PROJECT_DIR}/tuning-competition-baseline/megatron_configs/llm-jp/llm-jp-3.7b.yaml
+# INPUT_NAME_OR_PATH="llm-jp/llm-jp-3-3.7b"
+# OUTPUT_PATH=${PROJECT_DIR}/checkpoints/hf-to-nemo/llm-jp--llm-jp-3-3.7b
+# HPARAMS_FILE=./megatron_configs/llm-jp/llm-jp-3-3.7b.yaml
 
 # For 13B model
 INPUT_NAME_OR_PATH="llm-jp/llm-jp-3-13b"

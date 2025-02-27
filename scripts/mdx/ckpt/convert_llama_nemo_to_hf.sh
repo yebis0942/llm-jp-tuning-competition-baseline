@@ -36,5 +36,6 @@ python scripts/ckpt/convert_llama_nemo_to_hf.py \
   --input-hf-path ${INPUT_HF_PATH} \
   --output-path ${OUTPUT_PATH} \
   --model-id ${MODEL_ID} \
-  --cpu-only \
-  --n-jobs 96
+  --n-jobs 1
+  # --n-jobs 96
+  # --cpu-only \

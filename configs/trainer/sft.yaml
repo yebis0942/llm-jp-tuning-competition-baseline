@@ -1,5 +1,6 @@
 num_nodes: 1
-devices: 8
+# devices: 8
+devices: 1
 accelerator: gpu
 precision: bf16-mixed
 
