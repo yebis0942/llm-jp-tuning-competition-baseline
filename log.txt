@@ -1,0 +1,525 @@
++ ulimit -n 65536 1048576
++ PROJECT_DIR=/home/mdxuser/workspace/tuning-competition-baseline/project_dir
++ export TMPDIR=/home/mdxuser/workspace/tuning-competition-baseline/project_dir/tmp
++ TMPDIR=/home/mdxuser/workspace/tuning-competition-baseline/project_dir/tmp
++ INPUT_NAME_OR_PATH=llm-jp/llm-jp-3-13b
++ OUTPUT_PATH=/home/mdxuser/workspace/tuning-competition-baseline/project_dir/checkpoints/hf-to-nemo/llm-jp--llm-jp-3-13b
++ HPARAMS_FILE=./megatron_configs/llm-jp/llm-jp-3-13b.yaml
++ uv run python scripts/ckpt/convert_llama_hf_to_nemo.py --hparams-file ./megatron_configs/llm-jp/llm-jp-3-13b.yaml --input-name-or-path llm-jp/llm-jp-3-13b --output-path /home/mdxuser/workspace/tuning-competition-baseline/project_dir/checkpoints/hf-to-nemo/llm-jp--llm-jp-3-13b
+[NeMo W 2025-02-17 06:03:15 nemo_logging:393] /home/mdxuser/workspace/tuning-competition-baseline/.venv/lib/python3.11/site-packages/megatron/core/tensor_parallel/layers.py:253: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+      @custom_fwd
+    
+[NeMo W 2025-02-17 06:03:15 nemo_logging:393] /home/mdxuser/workspace/tuning-competition-baseline/.venv/lib/python3.11/site-packages/megatron/core/tensor_parallel/layers.py:264: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+      @custom_bwd
+    
+[NeMo W 2025-02-17 06:03:15 nemo_logging:393] /home/mdxuser/workspace/tuning-competition-baseline/.venv/lib/python3.11/site-packages/megatron/core/tensor_parallel/layers.py:324: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+      @custom_fwd
+    
+[NeMo W 2025-02-17 06:03:15 nemo_logging:393] /home/mdxuser/workspace/tuning-competition-baseline/.venv/lib/python3.11/site-packages/megatron/core/tensor_parallel/layers.py:359: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+      @custom_bwd
+    
+[NeMo I 2025-02-17 06:03:20 nemo_logging:381] loading checkpoint llm-jp/llm-jp-3-13b
+Loading checkpoint shards:   0%|          | 0/6 [00:00<?, ?it/s]Loading checkpoint shards:  17%|█▋        | 1/6 [00:47<03:57, 47.55s/it]Loading checkpoint shards:  33%|███▎      | 2/6 [01:36<03:13, 48.44s/it]Loading checkpoint shards:  50%|█████     | 3/6 [02:24<02:25, 48.40s/it]Loading checkpoint shards:  67%|██████▋   | 4/6 [03:13<01:37, 48.54s/it]Loading checkpoint shards:  83%|████████▎ | 5/6 [04:02<00:48, 48.54s/it]Loading checkpoint shards: 100%|██████████| 6/6 [04:27<00:00, 40.60s/it]Loading checkpoint shards: 100%|██████████| 6/6 [04:27<00:00, 44.58s/it]
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] hf_config: {'vocab_size': 99584, 'max_position_embeddings': 4096, 'hidden_size': 5120, 'intermediate_size': 13824, 'num_hidden_layers': 40, 'num_attention_heads': 40, 'num_key_value_heads': 40, 'hidden_act': 'silu', 'initializer_range': 0.02, 'rms_norm_eps': 1e-05, 'pretraining_tp': 1, 'use_cache': True, 'rope_theta': 10000, 'rope_scaling': None, 'attention_bias': False, 'attention_dropout': 0.0, 'return_dict': True, 'output_hidden_states': False, 'output_attentions': False, 'torchscript': False, 'torch_dtype': torch.bfloat16, 'use_bfloat16': False, 'tf_legacy_loss': False, 'pruned_heads': {}, 'tie_word_embeddings': False, 'chunk_size_feed_forward': 0, 'is_encoder_decoder': False, 'is_decoder': False, 'cross_attention_hidden_size': None, 'add_cross_attention': False, 'tie_encoder_decoder': False, 'max_length': 20, 'min_length': 0, 'do_sample': False, 'early_stopping': False, 'num_beams': 1, 'num_beam_groups': 1, 'diversity_penalty': 0.0, 'temperature': 1.0, 'top_k': 50, 'top_p': 1.0, 'typical_p': 1.0, 'repetition_penalty': 1.0, 'length_penalty': 1.0, 'no_repeat_ngram_size': 0, 'encoder_no_repeat_ngram_size': 0, 'bad_words_ids': None, 'num_return_sequences': 1, 'output_scores': False, 'return_dict_in_generate': False, 'forced_bos_token_id': None, 'forced_eos_token_id': None, 'remove_invalid_values': False, 'exponential_decay_length_penalty': None, 'suppress_tokens': None, 'begin_suppress_tokens': None, 'architectures': ['LlamaForCausalLM'], 'finetuning_task': None, 'id2label': {0: 'LABEL_0', 1: 'LABEL_1'}, 'label2id': {'LABEL_0': 0, 'LABEL_1': 1}, 'tokenizer_class': None, 'prefix': None, 'bos_token_id': 1, 'pad_token_id': None, 'eos_token_id': 2, 'sep_token_id': None, 'decoder_start_token_id': None, 'task_specific_params': None, 'problem_type': None, '_name_or_path': 'llm-jp/llm-jp-3-13b', '_commit_hash': 'cd3823f4c1fcbb0ad2e2af46036ab1b0ca13192a', '_attn_implementation_internal': 'sdpa', 'transformers_version': '4.43.3', 'mlp_bias': False, 'model_type': 'llama'}
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] named parameters:
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.embed_tokens.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.0.self_attn.q_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.0.self_attn.k_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.0.self_attn.v_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.0.self_attn.o_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.0.mlp.gate_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.0.mlp.up_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.0.mlp.down_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.0.input_layernorm.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.0.post_attention_layernorm.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.1.self_attn.q_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.1.self_attn.k_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.1.self_attn.v_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.1.self_attn.o_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.1.mlp.gate_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.1.mlp.up_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.1.mlp.down_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.1.input_layernorm.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.1.post_attention_layernorm.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.2.self_attn.q_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.2.self_attn.k_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.2.self_attn.v_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.2.self_attn.o_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.2.mlp.gate_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.2.mlp.up_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.2.mlp.down_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.2.input_layernorm.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.2.post_attention_layernorm.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.3.self_attn.q_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.3.self_attn.k_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.3.self_attn.v_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.3.self_attn.o_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.3.mlp.gate_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.3.mlp.up_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.3.mlp.down_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.3.input_layernorm.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.3.post_attention_layernorm.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.4.self_attn.q_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.4.self_attn.k_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.4.self_attn.v_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.4.self_attn.o_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.4.mlp.gate_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.4.mlp.up_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.4.mlp.down_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.4.input_layernorm.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.4.post_attention_layernorm.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.5.self_attn.q_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.5.self_attn.k_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.5.self_attn.v_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.5.self_attn.o_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.5.mlp.gate_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.5.mlp.up_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.5.mlp.down_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.5.input_layernorm.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.5.post_attention_layernorm.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.6.self_attn.q_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.6.self_attn.k_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.6.self_attn.v_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.6.self_attn.o_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.6.mlp.gate_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.6.mlp.up_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.6.mlp.down_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.6.input_layernorm.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.6.post_attention_layernorm.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.7.self_attn.q_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.7.self_attn.k_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.7.self_attn.v_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.7.self_attn.o_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.7.mlp.gate_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.7.mlp.up_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.7.mlp.down_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.7.input_layernorm.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.7.post_attention_layernorm.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.8.self_attn.q_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.8.self_attn.k_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.8.self_attn.v_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.8.self_attn.o_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.8.mlp.gate_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.8.mlp.up_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.8.mlp.down_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.8.input_layernorm.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.8.post_attention_layernorm.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.9.self_attn.q_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.9.self_attn.k_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.9.self_attn.v_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.9.self_attn.o_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.9.mlp.gate_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.9.mlp.up_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.9.mlp.down_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.9.input_layernorm.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.9.post_attention_layernorm.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.10.self_attn.q_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.10.self_attn.k_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.10.self_attn.v_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.10.self_attn.o_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.10.mlp.gate_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.10.mlp.up_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.10.mlp.down_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.10.input_layernorm.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.10.post_attention_layernorm.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.11.self_attn.q_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.11.self_attn.k_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.11.self_attn.v_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.11.self_attn.o_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.11.mlp.gate_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.11.mlp.up_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.11.mlp.down_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.11.input_layernorm.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.11.post_attention_layernorm.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.12.self_attn.q_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.12.self_attn.k_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.12.self_attn.v_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.12.self_attn.o_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.12.mlp.gate_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.12.mlp.up_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.12.mlp.down_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.12.input_layernorm.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.12.post_attention_layernorm.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.13.self_attn.q_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.13.self_attn.k_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.13.self_attn.v_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.13.self_attn.o_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.13.mlp.gate_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.13.mlp.up_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.13.mlp.down_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.13.input_layernorm.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.13.post_attention_layernorm.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.14.self_attn.q_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.14.self_attn.k_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.14.self_attn.v_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.14.self_attn.o_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.14.mlp.gate_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.14.mlp.up_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.14.mlp.down_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.14.input_layernorm.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.14.post_attention_layernorm.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.15.self_attn.q_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.15.self_attn.k_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.15.self_attn.v_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.15.self_attn.o_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.15.mlp.gate_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.15.mlp.up_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.15.mlp.down_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.15.input_layernorm.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.15.post_attention_layernorm.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.16.self_attn.q_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.16.self_attn.k_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.16.self_attn.v_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.16.self_attn.o_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.16.mlp.gate_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.16.mlp.up_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.16.mlp.down_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.16.input_layernorm.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.16.post_attention_layernorm.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.17.self_attn.q_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.17.self_attn.k_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.17.self_attn.v_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.17.self_attn.o_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.17.mlp.gate_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.17.mlp.up_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.17.mlp.down_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.17.input_layernorm.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.17.post_attention_layernorm.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.18.self_attn.q_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.18.self_attn.k_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.18.self_attn.v_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.18.self_attn.o_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.18.mlp.gate_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.18.mlp.up_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.18.mlp.down_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.18.input_layernorm.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.18.post_attention_layernorm.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.19.self_attn.q_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.19.self_attn.k_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.19.self_attn.v_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.19.self_attn.o_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.19.mlp.gate_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.19.mlp.up_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.19.mlp.down_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.19.input_layernorm.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.19.post_attention_layernorm.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.20.self_attn.q_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.20.self_attn.k_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.20.self_attn.v_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.20.self_attn.o_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.20.mlp.gate_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.20.mlp.up_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.20.mlp.down_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.20.input_layernorm.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.20.post_attention_layernorm.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.21.self_attn.q_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.21.self_attn.k_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.21.self_attn.v_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.21.self_attn.o_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.21.mlp.gate_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.21.mlp.up_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.21.mlp.down_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.21.input_layernorm.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.21.post_attention_layernorm.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.22.self_attn.q_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.22.self_attn.k_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.22.self_attn.v_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.22.self_attn.o_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.22.mlp.gate_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.22.mlp.up_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.22.mlp.down_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.22.input_layernorm.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.22.post_attention_layernorm.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.23.self_attn.q_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.23.self_attn.k_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.23.self_attn.v_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.23.self_attn.o_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.23.mlp.gate_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.23.mlp.up_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.23.mlp.down_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.23.input_layernorm.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.23.post_attention_layernorm.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.24.self_attn.q_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.24.self_attn.k_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.24.self_attn.v_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.24.self_attn.o_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.24.mlp.gate_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.24.mlp.up_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.24.mlp.down_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.24.input_layernorm.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.24.post_attention_layernorm.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.25.self_attn.q_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.25.self_attn.k_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.25.self_attn.v_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.25.self_attn.o_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.25.mlp.gate_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.25.mlp.up_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.25.mlp.down_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.25.input_layernorm.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.25.post_attention_layernorm.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.26.self_attn.q_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.26.self_attn.k_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.26.self_attn.v_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.26.self_attn.o_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.26.mlp.gate_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.26.mlp.up_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.26.mlp.down_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.26.input_layernorm.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.26.post_attention_layernorm.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.27.self_attn.q_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.27.self_attn.k_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.27.self_attn.v_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.27.self_attn.o_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.27.mlp.gate_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.27.mlp.up_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.27.mlp.down_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.27.input_layernorm.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.27.post_attention_layernorm.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.28.self_attn.q_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.28.self_attn.k_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.28.self_attn.v_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.28.self_attn.o_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.28.mlp.gate_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.28.mlp.up_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.28.mlp.down_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.28.input_layernorm.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.28.post_attention_layernorm.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.29.self_attn.q_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.29.self_attn.k_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.29.self_attn.v_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.29.self_attn.o_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.29.mlp.gate_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.29.mlp.up_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.29.mlp.down_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.29.input_layernorm.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.29.post_attention_layernorm.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.30.self_attn.q_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.30.self_attn.k_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.30.self_attn.v_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.30.self_attn.o_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.30.mlp.gate_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.30.mlp.up_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.30.mlp.down_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.30.input_layernorm.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.30.post_attention_layernorm.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.31.self_attn.q_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.31.self_attn.k_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.31.self_attn.v_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.31.self_attn.o_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.31.mlp.gate_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.31.mlp.up_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.31.mlp.down_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.31.input_layernorm.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.31.post_attention_layernorm.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.32.self_attn.q_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.32.self_attn.k_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.32.self_attn.v_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.32.self_attn.o_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.32.mlp.gate_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.32.mlp.up_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.32.mlp.down_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.32.input_layernorm.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.32.post_attention_layernorm.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.33.self_attn.q_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.33.self_attn.k_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.33.self_attn.v_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.33.self_attn.o_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.33.mlp.gate_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.33.mlp.up_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.33.mlp.down_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.33.input_layernorm.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.33.post_attention_layernorm.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.34.self_attn.q_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.34.self_attn.k_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.34.self_attn.v_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.34.self_attn.o_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.34.mlp.gate_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.34.mlp.up_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.34.mlp.down_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.34.input_layernorm.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.34.post_attention_layernorm.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.35.self_attn.q_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.35.self_attn.k_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.35.self_attn.v_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.35.self_attn.o_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.35.mlp.gate_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.35.mlp.up_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.35.mlp.down_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.35.input_layernorm.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.35.post_attention_layernorm.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.36.self_attn.q_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.36.self_attn.k_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.36.self_attn.v_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.36.self_attn.o_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.36.mlp.gate_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.36.mlp.up_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.36.mlp.down_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.36.input_layernorm.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.36.post_attention_layernorm.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.37.self_attn.q_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.37.self_attn.k_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.37.self_attn.v_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.37.self_attn.o_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.37.mlp.gate_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.37.mlp.up_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.37.mlp.down_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.37.input_layernorm.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.37.post_attention_layernorm.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.38.self_attn.q_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.38.self_attn.k_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.38.self_attn.v_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.38.self_attn.o_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.38.mlp.gate_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.38.mlp.up_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.38.mlp.down_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.38.input_layernorm.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.38.post_attention_layernorm.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.39.self_attn.q_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.39.self_attn.k_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.39.self_attn.v_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.39.self_attn.o_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.39.mlp.gate_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.39.mlp.up_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.39.mlp.down_proj.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.39.input_layernorm.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.layers.39.post_attention_layernorm.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - model.norm.weight
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] - lm_head.weight
+[NeMo W 2025-02-17 06:07:49 nemo_logging:393] /home/mdxuser/workspace/tuning-competition-baseline/.venv/lib/python3.11/site-packages/nemo/collections/nlp/parts/nlp_overrides.py:1161: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+      super().__init__(
+    
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] nemo_config: {'mcore_gpt': True, 'micro_batch_size': 1, 'global_batch_size': 8, 'tensor_model_parallel_size': 1, 'pipeline_model_parallel_size': 1, 'virtual_pipeline_model_parallel_size': None, 'encoder_seq_length': 4096, 'max_position_embeddings': 4096, 'num_layers': 40, 'hidden_size': 5120, 'ffn_hidden_size': 13824, 'num_attention_heads': 40, 'init_method_std': 0.02, 'use_scaled_init_method': True, 'hidden_dropout': 0.0, 'attention_dropout': 0.0, 'ffn_dropout': 0.0, 'kv_channels': None, 'apply_query_key_layer_scaling': True, 'normalization': 'rmsnorm', 'layernorm_epsilon': 1e-05, 'do_layer_norm_weight_decay': False, 'make_vocab_size_divisible_by': 128, 'pre_process': True, 'post_process': True, 'persist_layer_norm': True, 'bias': False, 'activation': 'fast-swiglu', 'headscale': False, 'transformer_block_type': 'pre_ln', 'openai_gelu': False, 'normalize_attention_scores': True, 'position_embedding_type': 'rope', 'rotary_percentage': 1.0, 'attention_type': 'multihead', 'share_embeddings_and_output_weights': False, 'overlap_p2p_comm': False, 'batch_p2p_comm': True, 'num_query_groups': 40, 'override_vocab_size': 99584, 'tokenizer': {'library': 'huggingface', 'type': 'llm-jp/llm-jp-3-13b', 'use_fast': True}, 'native_amp_init_scale': 4294967296, 'native_amp_growth_interval': 1000, 'hysteresis': 2, 'fp32_residual_connection': False, 'fp16_lm_cross_entropy': False, 'megatron_amp_O2': True, 'grad_allreduce_chunk_size_mb': 125, 'grad_div_ar_fusion': True, 'gradient_accumulation_fusion': False, 'bias_activation_fusion': False, 'bias_dropout_add_fusion': False, 'masked_softmax_fusion': True, 'get_attention_mask_from_fusion': True, 'apply_rope_fusion': False, 'seed': 1234, 'resume_from_checkpoint': None, 'use_cpu_initialization': False, 'onnx_safe': False, 'apex_transformer_log_level': 30, 'gradient_as_bucket_view': True, 'sync_batch_comm': False, 'activations_checkpoint_granularity': None, 'activations_checkpoint_method': None, 'activations_checkpoint_num_layers': None, 'num_micro_batches_with_partial_activation_checkpoints': None, 'activations_checkpoint_layers_per_pipeline': None, 'sequence_parallel': False, 'transformer_engine': True, 'fp8': False, 'fp8_e4m3': False, 'fp8_hybrid': True, 'fp8_margin': 0, 'fp8_interval': 1, 'fp8_amax_history_len': 1024, 'fp8_amax_compute_algo': 'max', 'reduce_amax': True, 'use_emha': False, 'data': {'index_mapping_dir': None, 'data_impl': 'mmap', 'splits_string': '900,50,50', 'seq_length': '${model.encoder_seq_length}', 'skip_warmup': True, 'num_workers': 2, 'dataloader_type': 'single', 'reset_position_ids': False, 'reset_attention_mask': False, 'eod_mask_loss': False, 'validation_drop_last': True, 'no_seqlen_plus_one_input_tokens': False, 'pad_samples_to_global_batch_size': False, 'shuffle_documents': True}, 'nsys_profile': {'enabled': False, 'start_step': 10, 'end_step': 10, 'ranks': [0], 'gen_shape': False}, 'optim': {'name': 'fused_adam', 'lr': 0.0002, 'weight_decay': 0.01, 'betas': [0.9, 0.98], 'sched': {'name': 'CosineAnnealing', 'warmup_steps': 500, 'constant_steps': 50000, 'min_lr': 2e-05}}, 'rotary_base': 10000, 'precision': 16}
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+[NeMo I 2025-02-17 06:07:49 nemo_logging:381] Embedding converted
+[NeMo I 2025-02-17 06:07:51 nemo_logging:381] Layer 0 converted
+[NeMo I 2025-02-17 06:07:52 nemo_logging:381] Layer 1 converted
+[NeMo I 2025-02-17 06:07:54 nemo_logging:381] Layer 2 converted
+[NeMo I 2025-02-17 06:07:55 nemo_logging:381] Layer 3 converted
+[NeMo I 2025-02-17 06:07:56 nemo_logging:381] Layer 4 converted
+[NeMo I 2025-02-17 06:07:58 nemo_logging:381] Layer 5 converted
+[NeMo I 2025-02-17 06:07:59 nemo_logging:381] Layer 6 converted
+[NeMo I 2025-02-17 06:08:01 nemo_logging:381] Layer 7 converted
+[NeMo I 2025-02-17 06:08:02 nemo_logging:381] Layer 8 converted
+[NeMo I 2025-02-17 06:08:03 nemo_logging:381] Layer 9 converted
+[NeMo I 2025-02-17 06:08:05 nemo_logging:381] Layer 10 converted
+[NeMo I 2025-02-17 06:08:06 nemo_logging:381] Layer 11 converted
+[NeMo I 2025-02-17 06:08:08 nemo_logging:381] Layer 12 converted
+[NeMo I 2025-02-17 06:08:09 nemo_logging:381] Layer 13 converted
+[NeMo I 2025-02-17 06:08:10 nemo_logging:381] Layer 14 converted
+[NeMo I 2025-02-17 06:08:12 nemo_logging:381] Layer 15 converted
+[NeMo I 2025-02-17 06:08:13 nemo_logging:381] Layer 16 converted
+[NeMo I 2025-02-17 06:08:15 nemo_logging:381] Layer 17 converted
+[NeMo I 2025-02-17 06:08:16 nemo_logging:381] Layer 18 converted
+[NeMo I 2025-02-17 06:08:17 nemo_logging:381] Layer 19 converted
+[NeMo I 2025-02-17 06:08:19 nemo_logging:381] Layer 20 converted
+[NeMo I 2025-02-17 06:08:20 nemo_logging:381] Layer 21 converted
+[NeMo I 2025-02-17 06:08:22 nemo_logging:381] Layer 22 converted
+[NeMo I 2025-02-17 06:08:23 nemo_logging:381] Layer 23 converted
+[NeMo I 2025-02-17 06:08:24 nemo_logging:381] Layer 24 converted
+[NeMo I 2025-02-17 06:08:26 nemo_logging:381] Layer 25 converted
+[NeMo I 2025-02-17 06:08:27 nemo_logging:381] Layer 26 converted
+[NeMo I 2025-02-17 06:08:29 nemo_logging:381] Layer 27 converted
+[NeMo I 2025-02-17 06:08:30 nemo_logging:381] Layer 28 converted
+[NeMo I 2025-02-17 06:08:32 nemo_logging:381] Layer 29 converted
+[NeMo I 2025-02-17 06:08:33 nemo_logging:381] Layer 30 converted
+[NeMo I 2025-02-17 06:08:34 nemo_logging:381] Layer 31 converted
+[NeMo I 2025-02-17 06:08:36 nemo_logging:381] Layer 32 converted
+[NeMo I 2025-02-17 06:08:37 nemo_logging:381] Layer 33 converted
+[NeMo I 2025-02-17 06:08:38 nemo_logging:381] Layer 34 converted
+[NeMo I 2025-02-17 06:08:40 nemo_logging:381] Layer 35 converted
+[NeMo I 2025-02-17 06:08:41 nemo_logging:381] Layer 36 converted
+[NeMo I 2025-02-17 06:08:43 nemo_logging:381] Layer 37 converted
+[NeMo I 2025-02-17 06:08:44 nemo_logging:381] Layer 38 converted
+[NeMo I 2025-02-17 06:08:45 nemo_logging:381] Layer 39 converted
+[NeMo I 2025-02-17 06:08:46 nemo_logging:381] Loaded model
+[NeMo W 2025-02-17 06:08:46 nemo_logging:393] The model: MegatronGPTModel() does not have field.name: context_parallel_size in its cfg. Add this key to cfg or config_mapping to make to make it configurable.
+[NeMo W 2025-02-17 06:08:46 nemo_logging:393] The model: MegatronGPTModel() does not have field.name: expert_model_parallel_size in its cfg. Add this key to cfg or config_mapping to make to make it configurable.
+[NeMo W 2025-02-17 06:08:46 nemo_logging:393] The model: MegatronGPTModel() does not have field.name: tp_comm_overlap in its cfg. Add this key to cfg or config_mapping to make to make it configurable.
+[NeMo W 2025-02-17 06:08:46 nemo_logging:393] The model: MegatronGPTModel() does not have field.name: tp_comm_split_ag in its cfg. Add this key to cfg or config_mapping to make to make it configurable.
+[NeMo W 2025-02-17 06:08:46 nemo_logging:393] The model: MegatronGPTModel() does not have field.name: tp_comm_atomic_ag in its cfg. Add this key to cfg or config_mapping to make to make it configurable.
+[NeMo W 2025-02-17 06:08:46 nemo_logging:393] The model: MegatronGPTModel() does not have field.name: tp_comm_split_rs in its cfg. Add this key to cfg or config_mapping to make to make it configurable.
+[NeMo W 2025-02-17 06:08:46 nemo_logging:393] The model: MegatronGPTModel() does not have field.name: tp_comm_atomic_rs in its cfg. Add this key to cfg or config_mapping to make to make it configurable.
+[NeMo W 2025-02-17 06:08:46 nemo_logging:393] The model: MegatronGPTModel() does not have field.name: tp_comm_bulk_wgrad in its cfg. Add this key to cfg or config_mapping to make to make it configurable.
+[NeMo W 2025-02-17 06:08:47 nemo_logging:393] The model: MegatronGPTModel() does not have field.name: tp_comm_bulk_dgrad in its cfg. Add this key to cfg or config_mapping to make to make it configurable.
+[NeMo W 2025-02-17 06:08:47 nemo_logging:393] The model: MegatronGPTModel() does not have field.name: finalize_model_grads_func in its cfg. Add this key to cfg or config_mapping to make to make it configurable.
+[NeMo W 2025-02-17 06:08:47 nemo_logging:393] The model: MegatronGPTModel() does not have field.name: pipeline_model_parallel_split_rank in its cfg. Add this key to cfg or config_mapping to make to make it configurable.
+[NeMo W 2025-02-17 06:08:47 nemo_logging:393] The model: MegatronGPTModel() does not have field.name: cpu_offloading in its cfg. Add this key to cfg or config_mapping to make to make it configurable.
+[NeMo W 2025-02-17 06:08:47 nemo_logging:393] The model: MegatronGPTModel() does not have field.name: cpu_offloading_num_layers in its cfg. Add this key to cfg or config_mapping to make to make it configurable.
+[NeMo W 2025-02-17 06:08:47 nemo_logging:393] The model: MegatronGPTModel() does not have field.name: _cpu_offloading_context in its cfg. Add this key to cfg or config_mapping to make to make it configurable.
+[NeMo W 2025-02-17 06:08:47 nemo_logging:393] The model: MegatronGPTModel() does not have field.name: cpu_offloading_activations in its cfg. Add this key to cfg or config_mapping to make to make it configurable.
+[NeMo W 2025-02-17 06:08:47 nemo_logging:393] The model: MegatronGPTModel() does not have field.name: cpu_offloading_weights in its cfg. Add this key to cfg or config_mapping to make to make it configurable.
+[NeMo W 2025-02-17 06:08:47 nemo_logging:393] The model: MegatronGPTModel() does not have field.name: barrier_with_L1_time in its cfg. Add this key to cfg or config_mapping to make to make it configurable.
+[NeMo I 2025-02-17 06:08:47 nemo_logging:381] Rank 0 has data parallel group : [0, 1]
+[NeMo I 2025-02-17 06:08:47 nemo_logging:381] Rank 0 has combined group of data parallel and context parallel : [0, 1]
+[NeMo I 2025-02-17 06:08:47 nemo_logging:381] All data parallel group ranks with context parallel combined: [[0, 1]]
+[NeMo I 2025-02-17 06:08:47 nemo_logging:381] Ranks 0 has data parallel rank: 0
+[NeMo I 2025-02-17 06:08:47 nemo_logging:381] Rank 0 has context parallel group: [0]
+[NeMo I 2025-02-17 06:08:47 nemo_logging:381] All context parallel group ranks: [[0], [1]]
+[NeMo I 2025-02-17 06:08:47 nemo_logging:381] Ranks 0 has context parallel rank: 0
+[NeMo I 2025-02-17 06:08:47 nemo_logging:381] Rank 0 has model parallel group: [0]
+[NeMo I 2025-02-17 06:08:47 nemo_logging:381] All model parallel group ranks: [[0], [1]]
+[NeMo I 2025-02-17 06:08:47 nemo_logging:381] Rank 0 has tensor model parallel group: [0]
+[NeMo I 2025-02-17 06:08:47 nemo_logging:381] All tensor model parallel group ranks: [[0], [1]]
+[NeMo I 2025-02-17 06:08:47 nemo_logging:381] Rank 0 has tensor model parallel rank: 0
+[NeMo I 2025-02-17 06:08:47 nemo_logging:381] Rank 0 has pipeline model parallel group: [0]
+[NeMo I 2025-02-17 06:08:47 nemo_logging:381] Rank 0 has embedding group: [0]
+[NeMo I 2025-02-17 06:08:47 nemo_logging:381] All pipeline model parallel group ranks: [[0], [1]]
+[NeMo I 2025-02-17 06:08:47 nemo_logging:381] Rank 0 has pipeline model parallel rank 0
+[NeMo I 2025-02-17 06:08:47 nemo_logging:381] All embedding group ranks: [[0], [1]]
+[NeMo I 2025-02-17 06:08:47 nemo_logging:381] Rank 0 has embedding rank: 0
+[NeMo W 2025-02-17 06:08:47 nemo_logging:393] The model: MegatronGPTModel() does not have field.name: context_parallel_size in its cfg. Add this key to cfg or config_mapping to make to make it configurable.
+[NeMo W 2025-02-17 06:08:47 nemo_logging:393] The model: MegatronGPTModel() does not have field.name: expert_model_parallel_size in its cfg. Add this key to cfg or config_mapping to make to make it configurable.
+[NeMo W 2025-02-17 06:08:47 nemo_logging:393] The model: MegatronGPTModel() does not have field.name: tp_comm_overlap in its cfg. Add this key to cfg or config_mapping to make to make it configurable.
+[NeMo W 2025-02-17 06:08:47 nemo_logging:393] The model: MegatronGPTModel() does not have field.name: tp_comm_split_ag in its cfg. Add this key to cfg or config_mapping to make to make it configurable.
+[NeMo W 2025-02-17 06:08:47 nemo_logging:393] The model: MegatronGPTModel() does not have field.name: tp_comm_atomic_ag in its cfg. Add this key to cfg or config_mapping to make to make it configurable.
+[NeMo W 2025-02-17 06:08:47 nemo_logging:393] The model: MegatronGPTModel() does not have field.name: tp_comm_split_rs in its cfg. Add this key to cfg or config_mapping to make to make it configurable.
+[NeMo W 2025-02-17 06:08:47 nemo_logging:393] The model: MegatronGPTModel() does not have field.name: tp_comm_atomic_rs in its cfg. Add this key to cfg or config_mapping to make to make it configurable.
+[NeMo W 2025-02-17 06:08:47 nemo_logging:393] The model: MegatronGPTModel() does not have field.name: tp_comm_bulk_wgrad in its cfg. Add this key to cfg or config_mapping to make to make it configurable.
+[NeMo W 2025-02-17 06:08:47 nemo_logging:393] The model: MegatronGPTModel() does not have field.name: tp_comm_bulk_dgrad in its cfg. Add this key to cfg or config_mapping to make to make it configurable.
+[NeMo W 2025-02-17 06:08:47 nemo_logging:393] The model: MegatronGPTModel() does not have field.name: finalize_model_grads_func in its cfg. Add this key to cfg or config_mapping to make to make it configurable.
+[NeMo W 2025-02-17 06:08:47 nemo_logging:393] The model: MegatronGPTModel() does not have field.name: pipeline_model_parallel_split_rank in its cfg. Add this key to cfg or config_mapping to make to make it configurable.
+[NeMo W 2025-02-17 06:08:47 nemo_logging:393] The model: MegatronGPTModel() does not have field.name: cpu_offloading in its cfg. Add this key to cfg or config_mapping to make to make it configurable.
+[NeMo W 2025-02-17 06:08:47 nemo_logging:393] The model: MegatronGPTModel() does not have field.name: cpu_offloading_num_layers in its cfg. Add this key to cfg or config_mapping to make to make it configurable.
+[NeMo W 2025-02-17 06:08:47 nemo_logging:393] The model: MegatronGPTModel() does not have field.name: _cpu_offloading_context in its cfg. Add this key to cfg or config_mapping to make to make it configurable.
+[NeMo W 2025-02-17 06:08:47 nemo_logging:393] The model: MegatronGPTModel() does not have field.name: cpu_offloading_activations in its cfg. Add this key to cfg or config_mapping to make to make it configurable.
+[NeMo W 2025-02-17 06:08:47 nemo_logging:393] The model: MegatronGPTModel() does not have field.name: cpu_offloading_weights in its cfg. Add this key to cfg or config_mapping to make to make it configurable.
+[NeMo W 2025-02-17 06:08:47 nemo_logging:393] The model: MegatronGPTModel() does not have field.name: barrier_with_L1_time in its cfg. Add this key to cfg or config_mapping to make to make it configurable.
+[NeMo I 2025-02-17 06:08:47 nemo_logging:381] Getting HuggingFace AutoTokenizer with pretrained_model_name: llm-jp/llm-jp-3-13b
+[NeMo I 2025-02-17 06:08:47 nemo_logging:381] Padded vocab_size: 99584, original vocab_size: 99574, dummy tokens: 10.
+[NeMo W 2025-02-17 06:08:47 nemo_logging:393] The model: MegatronGPTModel() does not have field.name: context_parallel_size in its cfg. Add this key to cfg or config_mapping to make to make it configurable.
+[NeMo W 2025-02-17 06:08:47 nemo_logging:393] The model: MegatronGPTModel() does not have field.name: expert_model_parallel_size in its cfg. Add this key to cfg or config_mapping to make to make it configurable.
+[NeMo W 2025-02-17 06:08:47 nemo_logging:393] The model: MegatronGPTModel() does not have field.name: tp_comm_overlap in its cfg. Add this key to cfg or config_mapping to make to make it configurable.
+[NeMo W 2025-02-17 06:08:47 nemo_logging:393] The model: MegatronGPTModel() does not have field.name: tp_comm_split_ag in its cfg. Add this key to cfg or config_mapping to make to make it configurable.
+[NeMo W 2025-02-17 06:08:47 nemo_logging:393] The model: MegatronGPTModel() does not have field.name: tp_comm_atomic_ag in its cfg. Add this key to cfg or config_mapping to make to make it configurable.
+[NeMo W 2025-02-17 06:08:47 nemo_logging:393] The model: MegatronGPTModel() does not have field.name: tp_comm_split_rs in its cfg. Add this key to cfg or config_mapping to make to make it configurable.
+[NeMo W 2025-02-17 06:08:47 nemo_logging:393] The model: MegatronGPTModel() does not have field.name: tp_comm_atomic_rs in its cfg. Add this key to cfg or config_mapping to make to make it configurable.
+[NeMo W 2025-02-17 06:08:47 nemo_logging:393] The model: MegatronGPTModel() does not have field.name: tp_comm_bulk_wgrad in its cfg. Add this key to cfg or config_mapping to make to make it configurable.
+[NeMo W 2025-02-17 06:08:47 nemo_logging:393] The model: MegatronGPTModel() does not have field.name: tp_comm_bulk_dgrad in its cfg. Add this key to cfg or config_mapping to make to make it configurable.
+[NeMo W 2025-02-17 06:08:47 nemo_logging:393] The model: MegatronGPTModel() does not have field.name: finalize_model_grads_func in its cfg. Add this key to cfg or config_mapping to make to make it configurable.
+[NeMo W 2025-02-17 06:08:47 nemo_logging:393] The model: MegatronGPTModel() does not have field.name: pipeline_model_parallel_split_rank in its cfg. Add this key to cfg or config_mapping to make to make it configurable.
+[NeMo W 2025-02-17 06:08:47 nemo_logging:393] The model: MegatronGPTModel() does not have field.name: cpu_offloading in its cfg. Add this key to cfg or config_mapping to make to make it configurable.
+[NeMo W 2025-02-17 06:08:47 nemo_logging:393] The model: MegatronGPTModel() does not have field.name: cpu_offloading_num_layers in its cfg. Add this key to cfg or config_mapping to make to make it configurable.
+[NeMo W 2025-02-17 06:08:47 nemo_logging:393] The model: MegatronGPTModel() does not have field.name: _cpu_offloading_context in its cfg. Add this key to cfg or config_mapping to make to make it configurable.
+[NeMo W 2025-02-17 06:08:47 nemo_logging:393] The model: MegatronGPTModel() does not have field.name: cpu_offloading_activations in its cfg. Add this key to cfg or config_mapping to make to make it configurable.
+[NeMo W 2025-02-17 06:08:47 nemo_logging:393] The model: MegatronGPTModel() does not have field.name: cpu_offloading_weights in its cfg. Add this key to cfg or config_mapping to make to make it configurable.
+[NeMo W 2025-02-17 06:08:47 nemo_logging:393] The model: MegatronGPTModel() does not have field.name: barrier_with_L1_time in its cfg. Add this key to cfg or config_mapping to make to make it configurable.
+[NeMo W 2025-02-17 06:08:47 nemo_logging:393] The model: MegatronGPTModel() does not have field.name: add_qkv_bias in its cfg. Add this key to cfg or config_mapping to make to make it configurable.
+[NeMo W 2025-02-17 06:08:47 nemo_logging:393] The model: MegatronGPTModel() does not have field.name: num_moe_experts in its cfg. Add this key to cfg or config_mapping to make to make it configurable.
+[NeMo W 2025-02-17 06:08:47 nemo_logging:393] The model: MegatronGPTModel() does not have field.name: rotary_interleaved in its cfg. Add this key to cfg or config_mapping to make to make it configurable.
+[NeMo W 2025-02-17 06:08:47 nemo_logging:393] The model: MegatronGPTModel() does not have field.name: window_size in its cfg. Add this key to cfg or config_mapping to make to make it configurable.
+[NeMo W 2025-02-17 06:08:47 nemo_logging:393] The model: MegatronGPTModel() does not have field.name: memory_efficient_layer_norm in its cfg. Add this key to cfg or config_mapping to make to make it configurable.
+[NeMo W 2025-02-17 06:08:47 nemo_logging:393] The model: MegatronGPTModel() does not have field.name: fp8_wgrad in its cfg. Add this key to cfg or config_mapping to make to make it configurable.
+[NeMo W 2025-02-17 06:08:47 nemo_logging:393] The model: MegatronGPTModel() does not have field.name: clone_scatter_output_in_embedding in its cfg. Add this key to cfg or config_mapping to make to make it configurable.
+[NeMo W 2025-02-17 06:08:47 nemo_logging:393] The model: MegatronGPTModel() does not have field.name: moe_router_load_balancing_type in its cfg. Add this key to cfg or config_mapping to make to make it configurable.
+[NeMo W 2025-02-17 06:08:47 nemo_logging:393] The model: MegatronGPTModel() does not have field.name: moe_router_topk in its cfg. Add this key to cfg or config_mapping to make to make it configurable.
+[NeMo W 2025-02-17 06:08:47 nemo_logging:393] The model: MegatronGPTModel() does not have field.name: moe_grouped_gemm in its cfg. Add this key to cfg or config_mapping to make to make it configurable.
+[NeMo W 2025-02-17 06:08:47 nemo_logging:393] The model: MegatronGPTModel() does not have field.name: moe_aux_loss_coeff in its cfg. Add this key to cfg or config_mapping to make to make it configurable.
+[NeMo W 2025-02-17 06:08:47 nemo_logging:393] The model: MegatronGPTModel() does not have field.name: moe_z_loss_coeff in its cfg. Add this key to cfg or config_mapping to make to make it configurable.
+[NeMo W 2025-02-17 06:08:47 nemo_logging:393] The model: MegatronGPTModel() does not have field.name: moe_input_jitter_eps in its cfg. Add this key to cfg or config_mapping to make to make it configurable.
+[NeMo W 2025-02-17 06:08:47 nemo_logging:393] The model: MegatronGPTModel() does not have field.name: moe_token_dropping in its cfg. Add this key to cfg or config_mapping to make to make it configurable.
+[NeMo I 2025-02-17 06:08:56 nemo_logging:381] Model converted successfully. Saving...
+Initializing distributed: GLOBAL_RANK: 0, MEMBER: 1/2
+Loading checkpoint shards:   0%|          | 0/6 [00:00<?, ?it/s]Loading checkpoint shards:  17%|█▋        | 1/6 [00:02<00:13,  2.72s/it]Loading checkpoint shards:  33%|███▎      | 2/6 [00:05<00:10,  2.60s/it]Loading checkpoint shards:  50%|█████     | 3/6 [00:07<00:07,  2.55s/it]Loading checkpoint shards:  67%|██████▋   | 4/6 [00:10<00:05,  2.53s/it]Loading checkpoint shards:  83%|████████▎ | 5/6 [00:12<00:02,  2.58s/it]Loading checkpoint shards: 100%|██████████| 6/6 [00:14<00:00,  2.22s/it]Loading checkpoint shards: 100%|██████████| 6/6 [00:14<00:00,  2.40s/it]
