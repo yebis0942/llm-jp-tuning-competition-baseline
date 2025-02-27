@@ -6,12 +6,14 @@ readme = "README.md"
 requires-python = "==3.11.*"
 dependencies = [
     "cython>=3.0.12",
+    "setuptools>=75.8.0",
     "hf-transfer>=0.1.9",
     "huggingface-hub==0.22.0",
     "nemo-aligner==0.3.1",
     "nemo-toolkit[core,nlp]==1.23.0",
     "pybind11>=2.13.6",
     "transformer-engine[pytorch]>=1.13.0",
+    "torch>=2.6.0",
 ]
 
 [[tool.uv.index]]
